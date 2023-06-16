@@ -1,4 +1,4 @@
-package com.example.kolokolnikov_android_studio_second_course.constance_lw
+package com.example.kolokolnikov_labotatory_work.constance_lw
 
 object ConstanceLw {
     const val INTENT_ANSWER = "s<-f"

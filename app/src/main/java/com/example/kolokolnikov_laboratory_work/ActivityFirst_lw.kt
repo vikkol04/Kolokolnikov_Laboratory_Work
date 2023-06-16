@@ -1,4 +1,4 @@
-package com.example.kolokolnikov_android_studio_second_course
+package com.example.kolokolnikov_laboratory_work
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,10 +7,8 @@ import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.kolokolnikov_android_studio_second_course.constance_lw.ConstanceLw
-import com.example.kolokolnikov_laboratory_work.VisitAdapter_lw
-import com.example.kolokolnikov_laboratory_work.Visit_lw
 import com.example.kolokolnikov_laboratory_work.databinding.ActivityFirstLwBinding
+import com.example.kolokolnikov_labotatory_work.constance_lw.ConstanceLw
 
 class ActivityFirst_lw : AppCompatActivity() {
     lateinit var bindingF: ActivityFirstLwBinding

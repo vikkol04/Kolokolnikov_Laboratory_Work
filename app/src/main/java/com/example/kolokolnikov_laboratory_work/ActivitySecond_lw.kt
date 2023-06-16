@@ -1,4 +1,4 @@
-package com.example.kolokolnikov_android_studio_second_course
+package com.example.kolokolnikov_laboratory_work
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,10 +7,8 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.content.ContextCompat
-import com.example.kolokolnikov_android_studio_second_course.constance_lw.ConstanceLw
-import com.example.kolokolnikov_laboratory_work.R
-import com.example.kolokolnikov_laboratory_work.Visit_lw
 import com.example.kolokolnikov_laboratory_work.databinding.ActivitySecondLwBinding
+import com.example.kolokolnikov_labotatory_work.constance_lw.ConstanceLw
 
 class ActivitySecond_lw : AppCompatActivity() {
     lateinit var bindingS: ActivitySecondLwBinding
