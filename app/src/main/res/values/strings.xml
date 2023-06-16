@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Kolokolnikov_Android_Studio_second_course</string>
+    <string name="text_view_default">Button has not been clicked yet</string>
+    <string name="text_view_button_clicked">Button has been clicked</string>
+
+    <string name="button_text_create_visit">Создать визит</string>
+    <string name="button_text_back">Назад</string>
+
+    <string name="fieldDocName">Выбрать врача</string>
+    <string name="fieldPatName_hint">Имя пациента</string>
+    <string name="fieldDate_hint">ЧЧММГГГГ</string>
+
+
+
+
+</resources>
