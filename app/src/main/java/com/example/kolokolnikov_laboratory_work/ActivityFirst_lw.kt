@@ -20,7 +20,7 @@ class ActivityFirst_lw : AppCompatActivity() {
         bindingF = ActivityFirstLwBinding.inflate(layoutInflater)
         setContentView(bindingF.root)
         bindingF.apply {
-            recyclerView.layoutManager = GridLayoutManager(this@ActivityFirst_lw, 3)
+            recyclerView.layoutManager = GridLayoutManager(this@ActivityFirst_lw, 2)
             recyclerView.adapter = adapter
         }
         launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {

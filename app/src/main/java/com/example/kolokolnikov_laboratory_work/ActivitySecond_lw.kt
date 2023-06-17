@@ -13,19 +13,20 @@ import com.example.kolokolnikov_labotatory_work.constance_lw.ConstanceLw
 class ActivitySecond_lw : AppCompatActivity() {
     lateinit var bindingS: ActivitySecondLwBinding
     private var correct = false
-    private var red_light = ContextCompat.getColor(this, R.color.red_light)
-    private var white = ContextCompat.getColor(this, R.color.white)
-
 
     override fun onCreate(savedInstanceState: Bundle?)  {
         super.onCreate(savedInstanceState)
+        var errorFieldColor = ContextCompat.getColor(this, R.color.red_light)
+        var correctFieldColor = ContextCompat.getColor(this, R.color.white)
         bindingS = ActivitySecondLwBinding.inflate(layoutInflater)
         setContentView(bindingS.root)
 
         bindingS.buttonCreateVisit2.setOnClickListener {
-            correct = check()
+            correct = check(errorFieldColor, correctFieldColor)
             if (correct){
-                val visitData = Visit_lw(bindingS.fieldDocName.text.toString(), bindingS.fieldPatName.text.toString(), bindingS.fieldDate.text.toString())
+                var dotDate = bindingS.fieldDate.text.toString()
+                dotDate = "${dotDate.substring(0,2)}.${dotDate.substring(2,4)}.${dotDate.substring(4,6)}"
+                val visitData = Visit_lw(bindingS.fieldDocName.text.toString(), bindingS.fieldPatName.text.toString(), dotDate)
                 val intentWithData = Intent().putExtra(ConstanceLw.INTENT_ANSWER, visitData)
                 setResult(RESULT_OK, intentWithData)
                 finish()
@@ -44,35 +45,39 @@ class ActivitySecond_lw : AppCompatActivity() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                bindingS.fieldDocName.text = "Выбрать врача"
+                bindingS.fieldDocName.text = "—"
             }
         }
     }
 
-    fun check(): Boolean = with(bindingS){
+    fun check(errorFieldColor: Int, correctFieldColor: Int): Boolean = with(bindingS){
         var ch = true
-
-        if (fieldDocName.text.toString() == "Выбрать врача") {
-            ch = false
-            fieldDocName.setTextColor(red_light)
-        } else fieldDocName.setTextColor(white)
 
         if (fieldPatName.text.toString().isEmpty()){
             ch = false
-            fieldPatName.setTextColor(red_light)
-        } else fieldPatName.setTextColor(white)
+            fieldPatName.setBackgroundColor(errorFieldColor)
+        } else fieldPatName.setBackgroundColor(correctFieldColor)
 
         if (fieldDate.text.toString().isEmpty() ) {
             ch = false
-            fieldDate.setTextColor(red_light)
-        } else fieldDate.setTextColor(white)
+            fieldDate.setBackgroundColor(errorFieldColor)
+        } else fieldDate.setBackgroundColor(correctFieldColor)
 
         for (i in fieldDate.text.toString()){
-            if (i !in "0123456789"){
+            if (i !in "0123456789") {
                 ch = false
-                fieldDate.setTextColor(red_light)
+                fieldDate.setBackgroundColor(errorFieldColor)
+                break
             }
         }
+        if (fieldDate.text.toString().length < 6){
+            ch = false
+            fieldDate.setBackgroundColor(errorFieldColor)
+        }
         return ch
+    }
+
+    fun closeActivitySecondLw(view: View){
+        finish()
     }
 }
